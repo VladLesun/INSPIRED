@@ -1,0 +1,11 @@
+.footer-copyright {
+    align-self: flex-end;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    @include mobile {
+        grid-column: 1 / 4;
+        order: 1;
+        font-size: 10px;
+    }
+}
