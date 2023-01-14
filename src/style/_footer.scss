@@ -1,0 +1,47 @@
+.footer {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+        padding: 51px 0 24px;
+        border-top: 1px solid $light-gray;
+        @include laptop {
+            padding-top: 31px;
+        }
+        @include tablet {
+            padding: 25px 0 16px;
+            gap: 17px;
+        }
+        @include mobile {
+            padding-top: 17px;
+            gap: 24px;
+        }
+    }
+    &__title {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        @include tablet {
+            font-size: 16px;
+            line-height: 19px;
+        }
+        @include mobile {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        transition: color .3s ease-in-out;
+        @include tablet {
+            font-size: 10px;
+            line-height: 130%;
+        }
+        &:hover {
+            color: $gray;
+        }
+    }
+}
