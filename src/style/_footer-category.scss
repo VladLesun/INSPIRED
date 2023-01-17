@@ -33,9 +33,14 @@
     &__sublist {
         display: flex;
         flex-direction: column;
-        column-gap: 6px;
+        gap: 6px;
         @include tablet {
             display: none;
         }
+    }
+    &__subitem {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

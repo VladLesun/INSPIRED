@@ -1,0 +1,95 @@
+.card {
+    display: none;
+    &__container {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-areas: 'img wrapper';
+        gap: 20px;
+        @include mobile {
+            grid-template-columns: 2fr;
+            grid-template-areas: 'img' 'wrapper';
+        }
+    }
+    &__image {
+        grid-area: img;
+        justify-self: flex-end;
+        @include laptop {
+            max-width: 362px;
+        }
+        @include tablet {
+            max-width: 250px;
+        }
+        @include mobile {
+            max-width: 290px;
+            justify-self: center;
+        }
+    }
+    &__wrapper {
+        grid-area: wrapper;
+        display: flex;
+        flex-direction: column;
+        justify-self: flex-start;
+        gap: 40px;
+        @include tablet {
+            gap: 16px;
+        }
+        @include mobile {
+            justify-self: center;
+        }
+    }
+    &__name,
+    &__price {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        @include tablet {
+            font-size: 14px;
+            line-height: 17px;
+        }
+    }
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        @include tablet {
+            gap: 16px;
+        }
+        @include mobile {
+            gap: 12px;
+        }
+    }
+    &__inner-flex {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        @include tablet {
+            gap: 10px;
+        }
+        @include mobile {
+            gap: 8px;
+        }
+    }
+    &__article {
+        display: flex;
+        align-items: center;
+        line-height: 0;
+        gap: 5px;
+    }
+    &__controller {
+        display: flex;
+    }
+    &__title {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: $gray;
+    }
+    &__list {
+        display: flex;
+    }
+}

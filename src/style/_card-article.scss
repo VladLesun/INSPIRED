@@ -1,0 +1,12 @@
+.card-article {
+    &__number {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: $main-color;
+        @include tablet {
+            font-size: 10px;
+            line-height: 12px;
+        }
+    }
+}

@@ -1,20 +1,39 @@
 .color {
-    display: block;
-    width: 12px;
-    height: 12px;
+    cursor: pointer;
+    position: relative;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-color: transparent;
-    &_red {
+    &_check {
+        border: .4px solid $gray;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    &_red::after {
         background-color: red;
     }
-    &_white {
+    &_white::after {
         background-color: white;
-        outline: .4px solid $main-color;
+        border: .4px solid $gray;
     }
-    &_black {
+    &_black::after {
         background-color: black;
     }
-    &_check {
-        outline: .4px solid $gray;
+    &__card {
+        width: 24px;
+        height: 24px;
+        &::after {
+            width: 16px;
+            height: 16px;
+        }
     }
 }
