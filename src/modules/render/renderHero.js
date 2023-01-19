@@ -1,3 +1,4 @@
+import { TITLE } from "../const";
 import { createElement } from "../createElement";
 
 const container = createElement('div', {
@@ -22,7 +23,7 @@ const heroLink = createElement('a', {
     textContent: 'Перейти'
 }, {
     parent: content
-})
+});
 
 
 
@@ -40,6 +41,6 @@ export const renderHero = (gender) => {
 
     hero.append(container);
 
-    //     titleElem.textContent: 
-    // heroLink.textContent: 
+    titleElem.textContent = TITLE[gender].title;
+    heroLink.href = `#/goods/${TITLE[gender].id}`;
 }

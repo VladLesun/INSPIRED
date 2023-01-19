@@ -1,20 +1,22 @@
-import { createElement } from "../createElement";
-import { dataNavigation } from "../dataNavigation";
+import { createElement } from '../createElement';
 
 export const renderFooter = () => {
-    const footer = document.querySelector('.footer');
+	const footer = document.querySelector('.footer');
 
-    footer.textContent = '';
+	footer.textContent = '';
 
-    const container = createElement('div', {
-        className: 'container footer__container',
-    }, {
-        parent: footer,
-    });
+	const container = createElement(
+		'div',
+		{
+			className: 'container footer__container',
+		},
+		{
+			parent: footer,
+		}
+	);
 
-    footer.innerHTML = `
-        <div class="container">
-        <div class="footer__container">
+	footer.innerHTML = `
+        <div class="container footer__container">
             <div class="footer__item footer__item_category footer-category">
                 <h2 class="footer__title footer-category__title">Каталог</h2>
                 <ul class="footer-category__list">
@@ -104,6 +106,5 @@ export const renderFooter = () => {
                 </ul>
             </div>
         </div>
-    </div>
     `;
-}
+};

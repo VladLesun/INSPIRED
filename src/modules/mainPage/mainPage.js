@@ -1,11 +1,9 @@
 import { renderNavigation } from "../render/renderNavigation";
 import { renderHero } from "../render/renderHero";
-import { renderGoods } from "../render/renderGoods";
+import { renderProducts } from "../render/renderProducts";
 
-export const mainPage = (gender = 'women') => {
-    console.log('gender: ', gender);
-
-    renderNavigation(gender);
-    renderHero(gender);
-    renderGoods();
-}
+export const mainPage = (gender = "women") => {
+	renderNavigation(gender);
+	renderHero(gender);
+	renderProducts("Новинки", { gender });
+};
