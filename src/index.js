@@ -1,48 +1,68 @@
 import './index.html';
 import './index.scss';
 
-import { mainPage } from './modules/mainPage/mainPage';
+import { mainPage } from './modules/mainPage';
 import { renderHeader } from './modules/render/renderHeader';
 import { renderFooter } from './modules/render/renderFooter';
 import { router } from './modules/router';
-import { menMainPage } from './modules/mainPage/menMainPage';
-import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { getData } from './modules/getData';
 import { API_URL, DATA } from './modules/const';
 import { createCssColors } from './modules/createCssColors';
+import { createElement } from './modules/createElement';
+import { categoryPage } from './modules/categoryPage';
 
 const init = async () => {
-	DATA.navigation = await getData(`${API_URL}/api/categories`);
-	DATA.colors = await getData(`${API_URL}/api/colors`);
+	try {
+		router.on('*', () => {
+			renderHeader();
+			renderFooter();
+		});
 
-	createCssColors(DATA.colors);
+		DATA.navigation = await getData(`${API_URL}/api/categories`);
+		DATA.colors = await getData(`${API_URL}/api/colors`);
 
-	router.on('*', () => {
-		renderHeader();
-		renderFooter();
-	});
+		createCssColors(DATA.colors);
 
-	router.on('/', () => {
-		mainPage();
-	});
+		router.on('/', () => {
+			mainPage();
+		});
 
-	router.on('women', () => {
-		womenMainPage();
-	});
+		router.on('women', () => {
+			mainPage('women');
+		});
 
-	router.on('men', () => {
-		menMainPage();
-	});
+		router.on('men', () => {
+			mainPage('men');
+		});
 
-	// setTimeout(() => {
-	//     router.navigate('men');
-	// }, 3000);
+		router.on('/:gender/:category', categoryPage);
 
-	// setTimeout(() => {
-	//     router.navigate('women');
-	// }, 6000)
+		router.on('search', (data) => {
+			console.log(data.params.value);
+		});
 
-	router.resolve();
+		// setTimeout(() => {
+		//     router.navigate('men');
+		// }, 3000);
+
+		// setTimeout(() => {
+		//     router.navigate('women');
+		// }, 6000)
+	} catch (e) {
+		console.warn(e);
+		createElement(
+			'h2',
+			{
+				className: 'main__error-title',
+				textContent: 'Что-то пошло не так, попробуйте позже...',
+			},
+			{
+				parent: document.querySelector('.main'),
+			}
+		);
+	} finally {
+		router.resolve();
+	}
 };
 
 init();
