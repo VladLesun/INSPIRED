@@ -1,15 +1,17 @@
 import './index.html';
 import './index.scss';
 
-import { mainPage } from './modules/mainPage';
+import { mainPageController } from './modules/controllers/mainPageController';
 import { renderHeader } from './modules/render/renderHeader';
 import { renderFooter } from './modules/render/renderFooter';
-import { router } from './modules/router';
+import { router } from './modules/utils/router';
 import { getData } from './modules/getData';
-import { API_URL, DATA } from './modules/const';
+import { API_URL, DATA, main } from './modules/const';
 import { createCssColors } from './modules/createCssColors';
-import { createElement } from './modules/createElement';
-import { categoryPage } from './modules/categoryPage';
+import { createElement } from './modules/utils/createElement';
+import { categoryPageController } from './modules/controllers/categoryPageController';
+import { searchPageController } from './modules/controllers/searchController';
+import { favoriteController } from './modules/controllers/favoriteController';
 
 const init = async () => {
 	try {
@@ -24,40 +26,32 @@ const init = async () => {
 		createCssColors(DATA.colors);
 
 		router.on('/', () => {
-			mainPage();
+			mainPageController();
 		});
 
 		router.on('women', () => {
-			mainPage('women');
+			mainPageController('women');
 		});
 
 		router.on('men', () => {
-			mainPage('men');
+			mainPageController('men');
 		});
 
-		router.on('/:gender/:category', categoryPage);
+		router.on('/:gender/:category', categoryPageController);
 
-		router.on('search', (data) => {
-			console.log(data.params.value);
-		});
+		router.on('search', searchPageController);
 
-		// setTimeout(() => {
-		//     router.navigate('men');
-		// }, 3000);
-
-		// setTimeout(() => {
-		//     router.navigate('women');
-		// }, 6000)
+		router.on('favorite', favoriteController);
 	} catch (e) {
 		console.warn(e);
 		createElement(
-			'h2',
+			'h3',
 			{
 				className: 'main__error-title',
 				textContent: 'Что-то пошло не так, попробуйте позже...',
 			},
 			{
-				parent: document.querySelector('.main'),
+				parent: main,
 			}
 		);
 	} finally {

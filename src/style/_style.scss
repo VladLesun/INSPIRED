@@ -56,13 +56,19 @@ fieldset {
 	margin: 0;
 }
 
-iframe {
+fieldset {
+	padding: 0;
+	margin: 0;
 	border: none;
 }
 
 .visually-hidden {
 	position: fixed;
 	transform: scale(0);
+}
+
+.input-hide {
+	appearance: none;
 }
 
 .container {
@@ -110,4 +116,8 @@ iframe {
 			line-height: 22px;
 		}
 	}
+}
+
+.cart-block {
+	display: none;
 }

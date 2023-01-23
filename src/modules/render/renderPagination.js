@@ -1,5 +1,5 @@
-import { createElement } from '../createElement';
-import { router } from '../router';
+import { createElement } from '../utils/createElement';
+import { getUrl } from '../utils/getUrl';
 
 export const renderPagination = (wrapperPagination, page, pages, count) => {
 	wrapperPagination.textContent = '';
@@ -41,7 +41,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
 				parent: paginationList,
 				append: createElement('a', {
 					textContent: n,
-					href: `${router.getCurrentLocation().url}?page=${n}`,
+					href: getUrl({ page: n }),
 					className: `pagination__link 
                     ${page === n ? 'pagination__link_active' : ''}`,
 				}),
@@ -55,7 +55,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
 			{
 				className: `pagination__arrow pagination__arrow_start 
                     ${!isNotStart ? 'pagination__arrow_disabled' : ''}`,
-				href: `${router.getCurrentLocation().url}?page=1`,
+				href: getUrl({ page: 1 }),
 				innerHTML: `
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 15.06L10.9096 12L14 8.94L13.0486 8L9 12L13.0486 16L14 15.06Z" fill="currentColor"/>
@@ -72,7 +72,7 @@ export const renderPagination = (wrapperPagination, page, pages, count) => {
 			{
 				className: `pagination__arrow pagination__arrow_end 
                     ${isEnd ? 'pagination__arrow_disabled' : ''}`,
-				href: `${router.getCurrentLocation().url}?page=${pages}`,
+				href: getUrl({ page: pages }),
 				innerHTML: `
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 15.06L13.0904 12L10 8.94L10.9514 8L15 12L10.9514 16L10 15.06Z" fill="currentColor"/>

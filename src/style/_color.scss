@@ -1,14 +1,15 @@
 .color {
-	cursor: pointer;
 	position: relative;
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
-	background-color: transparent;
+	display: block; // new
+
 	&_check {
 		border: 0.4px solid $gray;
 	}
-	&::after {
+
+	&:after {
 		content: '';
 		position: absolute;
 		top: 50%;
@@ -17,13 +18,5 @@
 		width: 12px;
 		height: 12px;
 		border-radius: 50%;
-	}
-	&__card {
-		width: 24px;
-		height: 24px;
-		&::after {
-			width: 16px;
-			height: 16px;
-		}
 	}
 }

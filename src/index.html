@@ -1,238 +1,380 @@
 <!DOCTYPE html>
 <html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link
+			rel="preload"
+			href="./fonts/interRegular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="./fonts/interSemiBold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="./fonts/interBold.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 
-    <link rel="preload" href="./fonts/interRegular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./fonts/interSemiBold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="./fonts/interBold.woff2" as="font" type="font/woff2" crossorigin>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<link
+			rel="mask-icon"
+			href="favicon/safari-pinned-tab.svg"
+			color="#5bbad5"
+		/>
+		<meta name="msapplication-TileColor" content="#da532c" />
+		<meta name="theme-color" content="#ffffff" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+		<title>Inspired - Онлайн магазин нижнего белья</title>
+	</head>
 
-    <title>Inspired - Онлайн магазин нижнего белья</title>
-</head>
+	<body>
+		<header class="header"></header>
 
-<body>
-    <header class="header"></header>
+		<main class="main">
+			<nav class="navigation"></nav>
 
-    <main class="main">
-        <nav class="navigation"></nav>
+			<section class="hero hero__women"></section>
 
-        <section class="hero hero__women"></section>
+			<section class="card">
+				<div class="container card__container">
+					<img
+						class="card__image"
+						src="img/card-img.jpg"
+						alt="Пижама со штанами шелковая"
+					/>
 
-        <section class="goods"></section>
+					<form class="card__content" id="order">
+						<h2 class="card__title">Пижама со штанами шелковая</h2>
 
-        <section class="card">
-            <h2 class="visually-hidden">Карточка товара</h2>
-            <div class="container card__container">
-                <img src="./img/productCard.jpg" alt="Пижама со штанами шелковая" class="card__image">
-                <div class="card__wrapper">
-                    <div class="card__titles">
-                        <p class="card__name">Пижама со штанами шелковая</p>
-                        <p class="card__price">руб 6999</p>
-                    </div>
+						<p class="card__price">руб 6999</p>
 
-                    <div class="card__inner">
-                        <div class="card__article card-article">
-                            <h3 class="card-article__name card__title">Артикул</h3>
-                            <p class="card-article__number">089083</p>
-                        </div>
-                        <div class="card__color card-color card__inner-flex">
-                            <h3 class="card-color__name card__title">Цвет</h3>
-                            <ul class="card-color__list card__list">
-                                <li class="card-color__item">
-                                    <div class="color color__card color_red color_check"></div>
-                                </li>
-                                <li class="card-color__item">
-                                    <div class="color color__card color_black"></div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card__size card-size card__inner-flex">
-                            <h3 class="card-size__name card__title">Размер</h3>
-                            <ul class="card-size__list card__list">
-                                <li class="card-size__item">
-                                    <button class="card-size__button">XS</button>
-                                </li>
-                                <li class="card-size__item">
-                                    <button class="card-size__button">S</button>
-                                </li>
-                                <li class="card-size__item">
-                                    <button class="card-size__button">M</button>
-                                </li>
-                                <li class="card-size__item">
-                                    <button class="card-size__button">L</button>
-                                </li>
-                                <li class="card-size__item">
-                                    <button class="card-size__button">XL</button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="card__description card-description card__inner-flex">
-                            <h3 class="card-description__name card__title">Описание</h3>
-                            <p class="card-description__text">Домашняя женская пижама с сорочкой и штанами из шелка</p>
-                        </div>
-                    </div>
+						<div class="card__vendor-code">
+							<span class="card__subtitle">Артикул</span>
+							<span class="card__id">089083</span>
+							<input type="hidden" name="id" value="089083" />
+						</div>
 
-                    <div class="card__controller card-controller">
-                        <div class="card-controller__count count">
-                            <button class="count__minus">-</button>
-                            <p class="count__amount">1</p>
-                            <button class="count__plus">+</button>
-                        </div>
-                        <div class="card-controller__basket">
-                            <button class="card-controller__add">В корзину</button>
-                            <button class="card-controller__favorite" aria-label="Добавить в избранное"></button>
-                        </div>
-                    </div>
+						<div class="card__color">
+							<p class="card__subtitle card__color-title">Цвет</p>
 
-                </div>
-            </div>
-        </section>
+							<div class="card__color-list">
+								<label class="card__color-item color color_black color_check">
+									<input
+										class="input-hide"
+										type="radio"
+										name="color"
+										value="black"
+										checked
+									/>
+								</label>
+								<label class="card__color-item color color_red">
+									<input
+										class="input-hide"
+										type="radio"
+										name="color"
+										value="red"
+									/>
+								</label>
+							</div>
+						</div>
 
-        <section class="basket">
-            <div class="container basket__container">
-                <h2 class="basket__title">Корзина</h2>
-                <div class="basket__box">
-                    <ul class="basket__list">
-                        <li class="basket__item">
-                            <img class="basket__image" src="./img/basket01.jpg" alt="Пижама со штанами шелковая">
-                            <div class="basket__wrapper">
-                                <p class="basket__name">Пижама со штанами шелковая</p>
-                                <p class="basket__price">руб 6999</p>
-                                <div class="basket__article">
-                                    <h3 class="basket__subtitle">Артикул</h3>
-                                    <p class="basket__number">089083</p>
-                                </div>
-                                <div class="basket__color-size">
-                                    <div class="basket__color basket__subitem">
-                                        <h3 class="basket__subtitle">Цвет</h3>
-                                        <ul class="basket__color-list">
-                                            <li class="basket__color-item">
-                                                <div class="color color__card color_red color_check"></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="basket__size basket__subitem">
-                                        <h3 class="basket__size-name basket__subtitle">Размер</h3>
-                                        <ul class="basket__size-list">
-                                            <li class="basket__size__item">
-                                                <button class="card-size__button">XS</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <button class="basket__close">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M16 8L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M16 16L8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
-                                <div class="basket__count count">
-                                    <button class="count__minus">-</button>
-                                    <p class="count__amount">1</p>
-                                    <button class="count__plus">+</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="basket__item">
-                            <img class="basket__image" src="./img/basket02.jpg" alt="Пижама со штанами шелковая">
-                            <div class="basket__wrapper">
-                                <p class="basket__name">Бюстгальтер-Балконет Prague Full Cover</p>
-                                <p class="basket__price">руб 2599</p>
-                                <div class="basket__article">
-                                    <h3 class="basket__subtitle">Артикул</h3>
-                                    <p class="basket__number">084375</p>
-                                </div>
-                                <div class="basket__color-size">
-                                    <div class="basket__color basket__subitem">
-                                        <h3 class=" basket__subtitle">Цвет</h3>
-                                        <ul class="basket__color-list">
-                                            <li class="basket__color-item">
-                                                <div class="color color__card color_red color_check"></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="basket__size basket__subitem">
-                                        <h3 class="basket__size-name basket__subtitle">Размер</h3>
-                                        <ul class="basket__size-list">
-                                            <li class="basket__size__item">
-                                                <button class="card-size__button">M</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <button class="basket__close">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M16 8L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M16 16L8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </button>
-                                <div class="basket__count count">
-                                    <button class="count__minus">-</button>
-                                    <p class="count__amount">1</p>
-                                    <button class="count__plus">+</button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="basket__total">
-                    <p class="basket__total-text">Итого:</p>
-                    <p class="basket__total-sum">руб 9598</p>
-                </div>
-            </div>
-        </section>
+						<div class="card__size">
+							<p class="card__subtitle card__size-title">Размер</p>
 
-        <section class="order">
-            <div class="container order__container">
-                <h2 class="order__title">Оформление заказа</h2>
-                <form class="order__form form">
-                    <div class="form__inputs">
-                        <label class="form__label">
-                            <input class="form__input" name="bio" type="text" placeholder="ФИО" required>
-                        </label>
-                        <label class="form__label">
-                            <input class="form__input" name="address" type="text" placeholder="Адрес доставки" required>
-                        </label>
-                        <label class="form__label">
-                            <input class="form__input" name="phone" type="number" placeholder="Телефон" required>
-                        </label>
-                        <label class="form__label">
-                            <input class="form__input" name="mail" type="email" placeholder="E-mail" required>
-                        </label>
-                    </div>
-                    <div class="form__radio">
-                        <div class="form__radio-wrap">
-                            <label for="" class="form__label form__label_radio">
-                                <input class="form__input-radio" type="radio" name="delivery" checked>
-                                <span class="form__text">Доставка</span>
-                            </label>
-                            <label for="" class="form__label form__label_radio">
-                                <input class="form__input-radio" type="radio" name="pickup">
-                                <span class="form__text">Самовывоз</span>
-                            </label>
-                        </div>
-                        <div class="form__submit-wrap">
-                            <button class="form__submit" type="submit">Оформить</button>
-                        </div>
-                    </div>
+							<div class="card__size-list">
+								<label class="card__size-item size">
+									<input
+										class="input-hide"
+										type="radio"
+										name="size"
+										value="XS"
+									/>XS
+								</label>
+								<label class="card__size-item size">
+									<input
+										class="input-hide"
+										type="radio"
+										name="size"
+										value="S"
+									/>S
+								</label>
+								<label class="card__size-item size">
+									<input
+										class="input-hide"
+										type="radio"
+										name="size"
+										value="M"
+									/>M
+								</label>
+								<label class="card__size-item size">
+									<input
+										class="input-hide"
+										type="radio"
+										name="size"
+										value="L"
+									/>L
+								</label>
+								<label class="card__size-item size">
+									<input
+										class="input-hide"
+										type="radio"
+										name="size"
+										value="XL"
+									/>XL
+								</label>
+							</div>
+						</div>
 
-                </form>
-            </div>
-        </section>
-    </main>
+						<div class="card__description">
+							<p class="card__subtitle card__description-title">Описание</p>
 
-    <footer class="footer"></footer>
-</body>
+							<p class="card__description-text">
+								Домашняя женская пижама с сорочкой и штанами из шелка
+							</p>
+						</div>
 
+						<div class="card__control">
+							<div class="card__count count">
+								<button class="count__item count__minus">-</button>
+								<span class="count__item count__number">1</span>
+								<button class="count__item count__plus">+</button>
+								<input type="hidden" name="count" value="1" />
+							</div>
+
+							<button class="card__add-cart main-button" type="submit">
+								В корзину
+							</button>
+							<button
+								class="card__favorite favorite"
+								aria-label="Добавить в избранное"
+								type="button"
+								data-id="321654"
+							></button>
+						</div>
+					</form>
+				</div>
+			</section>
+
+			<div class="cart-block">
+				<section class="cart">
+					<div class="container">
+						<h2 class="cart__title">Корзина</h2>
+
+						<ul class="cart__list">
+							<li class="cart__item">
+								<article class="item">
+									<img
+										src="img/card-img.jpg"
+										alt="Пижама со штанами шелковая"
+										class="item__image"
+									/>
+
+									<div class="item__content">
+										<h3 class="item__title">Пижама со штанами шелковая</h3>
+
+										<p class="item__price">руб 6999</p>
+
+										<div class="item__vendor-code">
+											<span class="item__subtitle">Артикул</span>
+											<span class="item__id">089083</span>
+										</div>
+									</div>
+
+									<div class="item__prop">
+										<div class="item__color">
+											<p class="item__subtitle item__color-title">Цвет</p>
+
+											<div
+												class="item__color-item color color_black color_check"
+											></div>
+										</div>
+
+										<div class="item__size">
+											<p class="item__subtitle item__size-title">Размер</p>
+
+											<div class="item__size-item size">XS</div>
+										</div>
+									</div>
+
+									<button
+										class="item__del"
+										aria-label="Удалить товар из корзины"
+									></button>
+
+									<div class="count item__count">
+										<button class="count__item count__minus">-</button>
+										<span class="count__item count__number">1</span>
+										<button class="count__item count__plus">+</button>
+										<input type="hidden" name="count" value="1" />
+									</div>
+								</article>
+							</li>
+
+							<li class="cart__item">
+								<article class="item">
+									<img
+										src="img/cart-img.jpg"
+										alt="Бюстгальтер-Балконет Prague Full Cover"
+										class="item__image"
+									/>
+
+									<div class="item__content">
+										<h3 class="item__title">
+											Бюстгальтер-Балконет Prague Full Cover
+										</h3>
+
+										<p class="item__price">руб 2599</p>
+
+										<div class="item__vendor-code">
+											<span class="item__subtitle">Артикул</span>
+											<span class="item__id">084375</span>
+										</div>
+									</div>
+
+									<div class="item__prop">
+										<div class="item__color">
+											<p class="item__subtitle item__color-title">Цвет</p>
+
+											<div
+												class="item__color-item color color_black color_check"
+											></div>
+										</div>
+
+										<div class="item__size">
+											<p class="item__subtitle item__size-title">Размер</p>
+
+											<div class="item__size-item size">M</div>
+										</div>
+									</div>
+
+									<button
+										class="item__del"
+										aria-label="Удалить товар из корзины"
+									></button>
+
+									<div class="count item__count">
+										<button class="count__item count__minus">-</button>
+										<span class="count__item count__number">1</span>
+										<button class="count__item count__plus">+</button>
+										<input type="hidden" name="count" value="1" />
+									</div>
+								</article>
+							</li>
+						</ul>
+
+						<div class="cart__total">
+							<p class="cart__total-title">Итого:</p>
+
+							<p class="cart__total-price">руб 9598</p>
+						</div>
+					</div>
+				</section>
+
+				<section class="order">
+					<div class="container">
+						<h2 class="order__title">Оформление заказа</h2>
+
+						<form class="order__form">
+							<fieldset class="order__personal">
+								<label class="order__label">
+									<input
+										class="order__input"
+										type="text"
+										placeholder="ФИО"
+										name="fio"
+									/>
+								</label>
+
+								<label class="order__label">
+									<input
+										class="order__input"
+										type="text"
+										placeholder="Адрес доставки"
+										name="address"
+									/>
+								</label>
+
+								<label class="order__label">
+									<input
+										class="order__input"
+										type="text"
+										placeholder="Телефон"
+										name="phone"
+									/>
+								</label>
+
+								<label class="order__label">
+									<input
+										class="order__input"
+										type="text"
+										placeholder="E-mail"
+										name="email"
+									/>
+								</label>
+							</fieldset>
+
+							<fieldset class="order__radio-list">
+								<label class="order__radio radio">
+									<input
+										class="radio__input"
+										type="radio"
+										name="delivery"
+										value="delivery"
+									/>
+									<span class="radio__text">Доставка</span>
+								</label>
+
+								<label class="order__radio radio">
+									<input
+										class="radio__input"
+										type="radio"
+										name="delivery"
+										value="self"
+									/>
+									<span class="radio__text">Самовывоз</span>
+								</label>
+							</fieldset>
+
+							<button class="order__submit main-button" type="submit">
+								Оформить
+							</button>
+						</form>
+					</div>
+				</section>
+			</div>
+
+			<section class="goods"></section>
+		</main>
+
+		<footer class="footer"></footer>
+	</body>
 </html>
