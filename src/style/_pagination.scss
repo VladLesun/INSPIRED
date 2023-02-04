@@ -45,9 +45,6 @@
 	&__arrow {
 		color: $main-color;
 	}
-	&__arrow_start {
-		order: -1;
-	}
 	&__arrow_disabled {
 		color: $gray;
 		pointer-events: none;

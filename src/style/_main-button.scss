@@ -1,17 +1,35 @@
 .main-button {
-  background-color: $main-color;
-  color: $second-color;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 17px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  border: none;
-  padding: 14px 41px 15px;
+	background-color: $main-color;
+	color: $second-color;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	text-transform: uppercase;
+	white-space: nowrap;
+	border: none;
+	padding: 14px 41px 15px;
+	transition: background-color 0.3s ease-in-out;
 
-  @include tablet {
-    padding: 12px 41px;
-    font-size: 10px;
-    line-height: 12px;
-  }
+	@include tablet {
+		padding: 12px 41px;
+		font-size: 10px;
+		line-height: 12px;
+	}
+
+	&:hover {
+		background-color: $gray;
+	}
+
+	&:active {
+		background-color: $dark-gray;
+	}
+
+	&:disabled {
+		pointer-events: none;
+		background-color: $light-gray;
+	}
+
+	&:focus {
+		background-color: $dark-gray;
+	}
 }

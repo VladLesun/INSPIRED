@@ -4,8 +4,12 @@ import { getData } from '../getData';
 import { renderPagination } from './renderPagination';
 import { getFavorite } from '../controllers/favoriteController';
 
-export const renderProducts = async (title, params) => {
+export const renderProducts = async ({ title, params, render }) => {
 	products.textContent = '';
+
+	if (!render) {
+		return;
+	}
 
 	const data = await getData(`${API_URL}/api/goods`, params);
 
@@ -44,7 +48,7 @@ export const renderProducts = async (title, params) => {
 			}
 		);
 
-		if (!data.totalCount) {
+		if (!Array.isArray(data) && !data.totalCount) {
 			createElement(
 				'h3',
 				{

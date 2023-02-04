@@ -3,11 +3,11 @@
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
-	display: block; // new
+	display: block;
 
-	&_check {
-		border: 0.4px solid $gray;
-	}
+	// &:has(:checked) { //! не работает в fireFox
+	// 	border: 0.4px solid $gray;
+	// }
 
 	&:after {
 		content: '';
@@ -17,6 +17,14 @@
 		transform: translate(-50%, -50%);
 		width: 12px;
 		height: 12px;
+		border-radius: 50%;
+	}
+
+	&__input:checked + &__check {
+		position: absolute;
+		inset: 0;
+		display: block;
+		border: 0.4px solid $gray;
 		border-radius: 50%;
 	}
 }
