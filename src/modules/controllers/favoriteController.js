@@ -5,6 +5,7 @@ import { renderHero } from '../render/renderHero';
 import { renderNavigation } from '../render/renderNavigation';
 import { renderOrder } from '../render/renderOrder';
 import { renderProducts } from '../render/renderProducts';
+import { searchPageController } from './searchController';
 
 export const getFavorite = () =>
 	JSON.parse(localStorage.getItem('favorite') || '[]');
@@ -27,18 +28,17 @@ const removeFavorite = (id) => {
 
 export const handlerFavorite = (e) => {
 	const target = e.target;
+	console.log('target: ', target);
 
 	if (target.closest('.favorite_active')) {
 		removeFavorite(target.dataset.id);
 		target.classList.remove('favorite_active');
-		console.log(getFavorite());
 		return;
 	}
 
 	if (target.closest('.favorite')) {
 		addFavorite(target.dataset.id);
 		target.classList.add('favorite_active');
-		console.log(getFavorite());
 		return;
 	}
 };
@@ -49,9 +49,12 @@ export const favoriteController = () => {
 	renderCard({ render: false });
 	renderProducts({
 		title: 'Избранное',
-		params: { list: getFavorite() },
+		params: {
+			list: getFavorite(),
+		},
 		render: true,
 	});
+
 	renderCart({ render: false });
 	renderOrder({ render: false });
 };

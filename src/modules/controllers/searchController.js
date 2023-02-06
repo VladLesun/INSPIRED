@@ -27,7 +27,7 @@ export const searchPageController = (routerData) => {
 	renderCard({ render: false });
 	renderProducts({
 		title: !routerData.params.value
-			? 'Весь товар'
+			? 'Все товары'
 			: `${routerData.params.value}`,
 		params,
 		render: true,

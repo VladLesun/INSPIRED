@@ -1,4 +1,5 @@
 import { order } from '../const';
+import { createElement } from '../utils/createElement';
 
 export const renderOrder = ({ render }) => {
 	order.textContent = '';
@@ -6,13 +7,34 @@ export const renderOrder = ({ render }) => {
 	if (!render) {
 		return;
 	}
-};
 
-`
-<div class="container">
-    <h2 class="order__title">Оформление заказа</h2>
+	const container = createElement(
+		'div',
+		{
+			className: 'container',
+			innerHTML: '<h2 class="order__title">Оформление заказа</h2>',
+		},
+		{
+			parent: order,
+		}
+	);
 
-    <form class="order__form">
+	const orderForm = createElement(
+		'form',
+		{
+			className: 'order__form',
+		},
+		{
+			parent: container,
+			cb(form) {
+				//! функция обработки submit
+			},
+		}
+	);
+
+	orderForm.insertAdjacentHTML(
+		'beforeend',
+		`
         <fieldset class="order__personal">
             <label class="order__label">
                 <input
@@ -20,6 +42,7 @@ export const renderOrder = ({ render }) => {
                     type="text"
                     placeholder="ФИО"
                     name="fio"
+                    required
                 />
             </label>
 
@@ -38,6 +61,7 @@ export const renderOrder = ({ render }) => {
                     type="text"
                     placeholder="Телефон"
                     name="phone"
+                    required
                 />
             </label>
 
@@ -58,6 +82,7 @@ export const renderOrder = ({ render }) => {
                     type="radio"
                     name="delivery"
                     value="delivery"
+                    required
                 />
                 <span class="radio__text">Доставка</span>
             </label>
@@ -68,6 +93,8 @@ export const renderOrder = ({ render }) => {
                     type="radio"
                     name="delivery"
                     value="self"
+                    checked
+                    required
                 />
                 <span class="radio__text">Самовывоз</span>
             </label>
@@ -76,6 +103,6 @@ export const renderOrder = ({ render }) => {
         <button class="order__submit main-button" type="submit">
             Оформить
         </button>
-    </form>
-</div>
-`;
+    `
+	);
+};
