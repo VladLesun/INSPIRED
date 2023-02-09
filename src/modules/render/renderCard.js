@@ -1,5 +1,5 @@
 import { API_URL, card, DATA } from '../const';
-import { addProductCart } from '../controllers/cartController';
+import { addProductCart, calcTotalPrice } from '../controllers/cartController';
 import {
 	getFavorite,
 	handlerFavorite,
@@ -51,6 +51,7 @@ export const renderCard = ({ data, render }) => {
 					const product = Object.fromEntries(formData);
 					if (product.color && product.size && product.count) {
 						addProductCart(product);
+						calcTotalPrice.updateCount();
 						return;
 					}
 
@@ -63,8 +64,8 @@ export const renderCard = ({ data, render }) => {
 									? product.count
 										? 'Что-то пошло не так...'
 										: 'Кол-во некорректное'
-									: 'Выберете цвет'
-								: 'Выберете размер',
+									: 'Выберите цвет'
+								: 'Выберите размер',
 						},
 						{
 							parent: cardControl,

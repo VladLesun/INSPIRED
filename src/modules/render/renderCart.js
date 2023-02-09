@@ -1,14 +1,14 @@
 import { API_URL, cart } from '../const';
 import {
 	addProductCart,
+	calcTotalPrice,
 	getCart,
 	removeCart,
 } from '../controllers/cartController';
-import { getData } from '../getData';
 import { createElement } from '../utils/createElement';
 import { renderCount } from './renderCount';
 
-export const renderCart = ({ render }) => {
+export const renderCart = ({ render, cartGoodsStore }) => {
 	cart.textContent = '';
 
 	if (!render) {
@@ -36,8 +36,8 @@ export const renderCart = ({ render }) => {
 		}
 	);
 
-	getCart().forEach(async (product) => {
-		const data = await getData(`${API_URL}/api/goods/${product.id}`);
+	getCart().forEach((product) => {
+		const data = cartGoodsStore.getProduct(product.id);
 
 		const li = createElement(
 			'li',
@@ -109,6 +109,8 @@ export const renderCart = ({ render }) => {
 						if (isRemove) {
 							confirm('Вы действительно хотите удалить товар из корзины ?');
 							li.remove();
+							calcTotalPrice.updateTotalPrice();
+							calcTotalPrice.updateCount();
 						}
 					});
 				},
@@ -118,6 +120,8 @@ export const renderCart = ({ render }) => {
 		const countBlock = renderCount(product.count, 'item__count', (count) => {
 			product.count = count;
 			addProductCart(product, true);
+			calcTotalPrice.updateTotalPrice();
+			calcTotalPrice.updateCount();
 		});
 		article.insertAdjacentElement('beforeend', countBlock);
 	});
@@ -137,10 +141,20 @@ export const renderCart = ({ render }) => {
 		'p',
 		{
 			className: 'cart__total-price',
-			textContent: 'руб 0',
+			textContent: 'руб ',
 		},
 		{
 			parent: cartTotal,
+			append: createElement(
+				'span',
+				{},
+				{
+					cb(elem) {
+						calcTotalPrice.updateTotalPrice();
+						calcTotalPrice.writeTotal(elem);
+					},
+				}
+			),
 		}
 	);
 };

@@ -1,9 +1,63 @@
+import { API_URL } from '../const';
+import { getData } from '../getData';
 import { renderCard } from '../render/renderCard';
 import { renderCart } from '../render/renderCart';
 import { renderHero } from '../render/renderHero';
 import { renderNavigation } from '../render/renderNavigation';
 import { renderOrder } from '../render/renderOrder';
 import { renderProducts } from '../render/renderProducts';
+
+export const cartGoodsStore = {
+	goods: [],
+	_add(product) {
+		if (!this.goods.some((item) => item.id === product.id)) {
+			this.goods.push(product);
+		}
+	},
+	add(goods) {
+		if (Array.isArray(goods)) {
+			goods.forEach((product) => {
+				this._add(product);
+			});
+		} else {
+			this._add(goods);
+		}
+	},
+	getProduct(id) {
+		return this.goods.find((item) => item.id === id);
+	},
+};
+
+export const calcTotalPrice = {
+	elemTotalPrice: null,
+	elemCount: null,
+	updateCount() {
+		const cartGoods = getCart();
+		this.count = cartGoods.reduce((acc, item) => +item.count + acc, 0);
+		this.writeCount();
+	},
+	updateTotalPrice() {
+		const cartGoods = getCart();
+		this.count = cartGoods.length;
+		this.totalPrice = cartGoods.reduce((sum, item) => {
+			const product = cartGoodsStore.getProduct(item.id);
+			return product.price * item.count + sum;
+		}, 0);
+		this.writeTotal();
+	},
+	writeTotal(elem = this.elemTotalPrice) {
+		if (elem) {
+			this.elemTotalPrice = elem;
+			elem.textContent = this.totalPrice;
+		}
+	},
+	writeCount(elem = this.elemCount) {
+		if (elem) {
+			this.elemCount = elem;
+			elem.textContent = this.count;
+		}
+	},
+};
 
 export const getCart = () => JSON.parse(localStorage.getItem('cart') || '[]');
 
@@ -49,11 +103,20 @@ export const removeCart = (product) => {
 	return true;
 };
 
-export const cartController = () => {
+export const clearCart = () => {
+	localStorage.removeItem('cart');
+};
+
+export const cartController = async () => {
+	const idList = [...new Set(getCart().map((item) => item.id))];
+	const data = await getData(`${API_URL}/api/goods?list=${[idList]}&count=all`);
+
+	cartGoodsStore.add(data);
+
 	renderNavigation({ render: false });
 	renderHero({ render: false });
 	renderCard({ render: false });
 	renderProducts({ render: false });
-	renderCart({ render: true });
+	renderCart({ render: true, cartGoodsStore });
 	renderOrder({ render: true });
 };

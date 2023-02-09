@@ -28,7 +28,6 @@ const removeFavorite = (id) => {
 
 export const handlerFavorite = (e) => {
 	const target = e.target;
-	console.log('target: ', target);
 
 	if (target.closest('.favorite_active')) {
 		removeFavorite(target.dataset.id);
