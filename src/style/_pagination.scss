@@ -1,0 +1,53 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	padding-top: 37px;
+	@include tablet {
+		padding-top: 21px;
+	}
+	@include mobile {
+		padding-top: 13px;
+	}
+
+	&__list {
+		display: flex;
+		padding-top: 9px;
+		justify-content: flex-end;
+		gap: 14px;
+		@include tablet {
+			padding-top: 0;
+		}
+	}
+	&__item {
+		display: block;
+		text-align: center;
+		width: 16px;
+	}
+	&__link {
+		display: block;
+		width: inherit;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		color: $gray;
+		@include tablet {
+			font-size: 10px;
+			line-height: 12px;
+		}
+	}
+	&__link_active {
+		padding-bottom: 6px;
+		color: $main-color;
+		border-bottom: 1px solid $main-color;
+	}
+	&__arrow {
+		color: $main-color;
+	}
+	&__arrow_disabled {
+		color: $gray;
+		pointer-events: none;
+		cursor: no-drop;
+	}
+}

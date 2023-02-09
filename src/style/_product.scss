@@ -1,49 +1,57 @@
 .product {
-    &__image {
-        margin-bottom: 10px;
-    }
-    &__title {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        margin-bottom: 13px;
-        @include tablet {
-            font-size: 12px;
-            line-height: 15px;
-            margin-bottom: 5px;
-        }
-    }
-    &__row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        @include tablet {
-            margin-bottom: 3px;
-        }
-    }
-    &__price {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        @include tablet {
-            font-size: 12px;
-            line-height: 15px;
-        }
-    }
-    &__btn-favorite {
-        display: block;
-        width: 24px;
-        height: 24px;
-        background-image: url(../img/favorit.svg);
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    &__color-list {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 6px;
-    }
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	&__link {
+		flex-grow: 1;
+		transition: color 0.24s ease-in-out;
+		&:hover {
+			color: $gray;
+		}
+	}
+	&__image {
+		margin-bottom: 16px;
+		width: 100%;
+		height: 370px;
+		object-fit: cover;
+		@include tablet {
+			margin-bottom: 10px;
+			height: 185px;
+		}
+	}
+	&__title {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		margin-bottom: 13px;
+		@include tablet {
+			font-size: 12px;
+			line-height: 15px;
+			margin-bottom: 5px;
+		}
+	}
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 12px;
+		@include tablet {
+			margin-bottom: 3px;
+		}
+	}
+	&__price {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 17px;
+		@include tablet {
+			font-size: 12px;
+			line-height: 15px;
+		}
+	}
+	&__color-list {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 3px;
+	}
 }

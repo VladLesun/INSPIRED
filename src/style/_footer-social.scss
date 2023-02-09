@@ -1,9 +1,4 @@
 .footer-social {
-    justify-self: center;
-    @include mobile {
-        grid-column: 2 / 4;
-        justify-self: start;
-    }
     &__title {
         margin-bottom: 16px;
         @include mobile {
@@ -25,10 +20,10 @@
         display: flex;
         gap: 10px;
     }
-    &__link {
-        transition: color .3s ease-in-out;
-        &:hover {
-            color: $gray;
-        }
+    &__link_vk:hover {
+        color: #0077FF;
+    }
+    &__link_fb:hover {
+        color: #3b5998;
     }
 }

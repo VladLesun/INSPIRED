@@ -1,37 +1,55 @@
 .goods {
-    &__title {
-        padding-bottom: 25px;
-        border-bottom: 1px solid $light-gray;
-        font-weight: 400;
-        font-size: 32px;
-        line-height: 39px;
-        text-align: center;
-        text-transform: uppercase;
-        @include tablet {
-            padding-bottom: 16px;
-            font-size: 24px;
-            line-height: 29px;
-        }
-        @include mobile {
-            padding-bottom: 9px;
-            font-size: 18px;
-            line-height: 22px;
-        }
-    }
-    &__list {
-        padding-top: 40px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 280px);
-        justify-content: space-evenly;
-        gap: 40px 20px;
-        @include tablet {
-            padding-top: 24px;
-            grid-template-columns: repeat(auto-fill, 140px);
-            row-gap: 24px;
-        }
-        @include mobile {
-            padding-top: 16px;
-            gap: 16px 10px;
-        }
-    }
+	&__title {
+		padding-bottom: 25px;
+		border-bottom: 1px solid $light-gray;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 39px;
+		text-align: center;
+		text-transform: uppercase;
+		@include tablet {
+			padding-bottom: 16px;
+			font-size: 24px;
+			line-height: 29px;
+		}
+		@include mobile {
+			padding-bottom: 9px;
+			font-size: 18px;
+			line-height: 22px;
+		}
+	}
+	&__warning {
+		padding-top: 40px;
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 22px;
+		text-transform: uppercase;
+		text-align: center;
+		@include tablet {
+			padding-top: 24px;
+			font-size: 14px;
+			line-height: 17px;
+		}
+		@include mobile {
+			padding-top: 22px;
+			font-size: 10px;
+			line-height: 12px;
+		}
+	}
+	&__list {
+		padding-top: 40px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, 280px);
+		justify-content: space-evenly;
+		gap: 40px 20px;
+		@include tablet {
+			padding-top: 24px;
+			grid-template-columns: repeat(auto-fill, 140px);
+			row-gap: 24px;
+		}
+		@include mobile {
+			padding-top: 16px;
+			gap: 16px 10px;
+		}
+	}
 }
