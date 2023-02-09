@@ -1,6 +1,6 @@
 export const DATA = {};
 export const COUNT_PAGINATION = 3;
-export const API_URL = 'http://localhost:8024';
+export const API_URL = 'https://pie-happy-currency.glitch.me';
 export const TITLE = {
 	women: {
 		title: 'Новая коллекция Бюстгальтер-балконет',
